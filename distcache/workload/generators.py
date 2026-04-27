@@ -20,10 +20,12 @@ def skewed_workload(n: int,
                     hot_fraction: float = 0.8,
                     key_space: int = 1000,
                     seed: int | None = None) -> list[str]:
+                      
     """
     n keys where *hot_fraction* of requests hit a single hot key.
     Models a celebrity item / trending hashtag cache hotspot.
     """
+                      
     rng = random.Random(seed)
     keys = []
     for _ in range(n):
