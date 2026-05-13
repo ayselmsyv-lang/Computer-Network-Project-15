@@ -24,8 +24,8 @@ st.title("Distributed Cache Infrastructure Simulator")
 st.caption("Consistent Hashing • Virtual Nodes • Hot-Key Analysis • Distributed Scaling")
 
 st.sidebar.header("Simulation Settings")
-st.sidebar.metric("Physical CPU Cores", psutil.cpu_count(logical=False))
-st.sidebar.metric("CPU Threads", os.cpu_count())
+st.sidebar.metric("Runtime Physical CPU Cores", psutil.cpu_count(logical=False))
+st.sidebar.metric("Runtime CPU Threads", os.cpu_count())
 
 node_count = st.sidebar.slider("Node Count", 2, 10, 4)
 vnodes = st.sidebar.slider("Virtual Nodes", 1, 300, 150)
