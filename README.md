@@ -2,6 +2,10 @@
 
 An educational distributed systems simulator designed to demonstrate scalable cache infrastructure concepts such as consistent hashing, virtual nodes, workload skew, and distributed scaling behavior.
 
+## Live Demo
+
+Here is the link: https://distributed-cache-infrastructure-simulator1.streamlit.app/
+
 # 🚀 Key Features
 ## Consistent Hash Ring
 Implements a circular hash space to minimize key remapping during cluster scaling.
@@ -24,18 +28,26 @@ Built with Streamlit for real-time infrastructure visualization and analysis.
 ---
 
 # Dashboard Preview
+<img width="1920" height="998" alt="image" src="https://github.com/user-attachments/assets/65bda766-b014-430b-b152-0e638151b8de" />
 
-<img width="1908" height="1002" alt="image" src="https://github.com/user-attachments/assets/a23a8551-faa2-496b-950a-1d610aa1f775" />
 
 
-The dashboard includes:
 
-- Consistent hash ring visualization
-- Node load distribution charts
-- Uniform vs Zipfian workload comparison
-- Hot-key bottleneck detection
-- Scaling and rebalancing metrics
-- CPU hardware awareness
+
+## ****The dashboard includes:****
+
+- Cluster Overview
+- Scaling Analysis
+- Hot-Key Analysis
+- Replication Mitigation
+- Consistent Hash Ring Visualization
+- Virtual Node Distribution
+- Node Load Distribution Charts
+- Uniform vs Zipfian Workload Comparison
+- Hot-Key Bottleneck Detection
+- Key Remapping Metrics
+- Runtime CPU Hardware Awareness
+- Real Consistent Hashing Simulation
 
 ---
 
