@@ -28,8 +28,9 @@ Built with Streamlit for real-time infrastructure visualization and analysis.
 ---
 
 # Dashboard Preview
+<img width="1920" height="998" alt="image" src="https://github.com/user-attachments/assets/65bda766-b014-430b-b152-0e638151b8de" />
 
-<img width="1908" height="1002" alt="image" src="https://github.com/user-attachments/assets/a23a8551-faa2-496b-950a-1d610aa1f775" />
+
 
 
 The dashboard includes:
