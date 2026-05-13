@@ -2,6 +2,10 @@
 
 An educational distributed systems simulator designed to demonstrate scalable cache infrastructure concepts such as consistent hashing, virtual nodes, workload skew, and distributed scaling behavior.
 
+## Live Demo
+
+Here is the link: https://distributed-cache-infrastructure-simulator1.streamlit.app/
+
 # 🚀 Key Features
 ## Consistent Hash Ring
 Implements a circular hash space to minimize key remapping during cluster scaling.
