@@ -87,7 +87,7 @@ with tab1:
         st.dataframe(df, use_container_width=True)
     with col2:
         st.pyplot(plot_node_distribution(distribution))
-
+    
     if workload == "Zipfian":
         hot_node = max(distribution, key=distribution.get)
         hot_pct  = distribution[hot_node] / sum(distribution.values()) * 100
@@ -183,17 +183,21 @@ with tab3:
         hot_key  = st.text_input("Hot Key", value="key:hot")
         replicas = st.slider("Replication Factor", 1, min(5, node_count), min(3, node_count))
 
-    # Build workload
+   # Build workload
     random.seed(42)
     cold_keys = [f"key:{i}" for i in range(200)]
-    wl = (
-        [hot_key] * int(n_requests * hot_fraction) +
-        random.choices(cold_keys, k=int(n_requests * (1 - hot_fraction)))
-    )
+
+    if workload == "Uniform":
+        wl = random.choices(cold_keys, k=n_requests)
+
+    else:
+        wl = (
+            [hot_key] * int(n_requests * hot_fraction) +
+            random.choices(cold_keys, k=int(n_requests * (1 - hot_fraction)))
+        )
+
     random.shuffle(wl)
-
     hring = build_ring(nodes, vnodes)
-
     # Without replication
     counts_no_rep = {n: 0 for n in nodes}
     for k in wl:
@@ -272,9 +276,12 @@ with tab3:
             "Node":            n,
             "No Replication":  counts_no_rep[n],
             "With Replication": counts_rep[n],
-            "Is Hot Node":     "🔴 Yes" if n == hot_node else "—",
-            "Is Replica":      "🟠 Yes" if n in replica_nodes else "—",
+            "Is Hot Node":     "🔴 Yes" if workload=="Zipfian" and n == hot_node else "—",
+            "Is Replica":      "🟠 Yes" if workload=="Zipfian" and n in replica_nodes else "—",
         })
     st.dataframe(pd.DataFrame(rows), use_container_width=True)
 
-    st.success("Replication + round-robin reads distributes hot-key traffic evenly across replica nodes.")
+    if workload == "Zipfian":
+        st.success("Replication + round-robin reads distributes hot-key traffic evenly across replica nodes.")
+    else:
+        st.info("Uniform workload has no dominant hot key, so replication does not significantly change the distribution.")
