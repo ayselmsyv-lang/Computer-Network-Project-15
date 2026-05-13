@@ -33,14 +33,21 @@ Built with Streamlit for real-time infrastructure visualization and analysis.
 
 
 
-The dashboard includes:
 
-- Consistent hash ring visualization
-- Node load distribution charts
-- Uniform vs Zipfian workload comparison
-- Hot-key bottleneck detection
-- Scaling and rebalancing metrics
-- CPU hardware awareness
+## ****The dashboard includes:****
+
+- Cluster Overview
+- Scaling Analysis
+- Hot-Key Analysis
+- Replication Mitigation
+- Consistent Hash Ring Visualization
+- Virtual Node Distribution
+- Node Load Distribution Charts
+- Uniform vs Zipfian Workload Comparison
+- Hot-Key Bottleneck Detection
+- Key Remapping Metrics
+- Runtime CPU Hardware Awareness
+- Real Consistent Hashing Simulation
 
 ---
 
