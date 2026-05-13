@@ -1,17 +1,67 @@
 # Project 15: Distributed Cache with Consistent Hashing & Hot-Key Analysis
 
-A high-performance, multi-process simulation of a distributed caching layer. This project implements **Consistent Hashing with Virtual Nodes** to solve the $O(n)$ remapping problem and provides a live cluster environment for analyzing traffic skew and hot-key bottlenecks.
+An educational distributed systems simulator designed to demonstrate scalable cache infrastructure concepts such as consistent hashing, virtual nodes, workload skew, and distributed scaling behavior.
 
-## 🚀 Key Features
+# 🚀 Key Features
+## Consistent Hash Ring
+Implements a circular hash space to minimize key remapping during cluster scaling.
 
-* **Consistent Hashing Ring:** Implements a $2^{32}$ hash space to ensure minimal data movement during cluster resizing.
-* **Virtual Node Support:** Configurable vnodes (default: 150) to smooth out distribution variance and prevent "data clumping."
-* **Multi-Process Isolation:** Spawns independent OS processes for each node, simulating real-world distributed hardware.
-* **Workload Analysis:** Contrast engines for **Uniform** traffic vs. **Skewed (Zipfian)** traffic patterns.
-* **Dynamic Scaling:** Add or remove nodes at runtime and observe real-time key rebalancing.
+## Virtual Nodes
+Supports configurable virtual nodes (vnodes) to improve load balancing and reduce distribution variance.
+
+## Hot-Key Analysis
+Simulates Zipfian/skewed workloads where a small subset of keys receives disproportionately high traffic.
+
+## Scaling Simulation
+Demonstrates how distributed cache systems rebalance only a small portion of keys when nodes are added or removed.
+
+## Hardware-Aware Simulation
+Displays physical CPU cores and logical threads to emulate realistic distributed scaling scenarios.
+
+## Interactive Dashboard
+Built with Streamlit for real-time infrastructure visualization and analysis.
 
 ---
 
+# Dashboard Preview
+
+<img width="1908" height="1002" alt="image" src="https://github.com/user-attachments/assets/a23a8551-faa2-496b-950a-1d610aa1f775" />
+
+
+The dashboard includes:
+
+- Consistent hash ring visualization
+- Node load distribution charts
+- Uniform vs Zipfian workload comparison
+- Hot-key bottleneck detection
+- Scaling and rebalancing metrics
+- CPU hardware awareness
+
+---
+
+## Technologies
+
+- Python
+- Streamlit
+- Pandas
+- NumPy
+- Matplotlib
+- psutil
+- Distributed Systems Concepts
+- Consistent Hashing
+- Virtual Nodes
+- Distributed Cache Simulation
+
+## Workload Modes
+**Uniform Workload**
+
+Represents relatively balanced traffic across cache nodes.
+
+**Zipfian Workload**
+
+Represents realistic skewed traffic patterns where a small number of keys dominate requests and create hotspots.
+
+---
 ## 🛠 Usage Reference
 
 The system is controlled via `main.py`. It supports dynamic node counts, even exceeding physical CPU cores through OS context switching.
@@ -35,6 +85,11 @@ python main.py --demo workload
 
 # Customize virtual node count
 python main.py --demo cluster --nodes 5 --vnodes 200
+```
+### Run Interactive Dashboard
+
+```bash
+streamlit run dashboard/app.py
 ```
 
 ### 📌 What This Project Demonstrates
